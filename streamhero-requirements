@@ -1,0 +1,13 @@
+VPN-1:
+    - posgresql
+    - cv instanse
+    - api instanse
+    - tds instanse
+    - admin instanse
+    - spa instanse
+    - volume cv
+    - volume creatives
+VPN-2
+    - twitch
+    - posgresql
+

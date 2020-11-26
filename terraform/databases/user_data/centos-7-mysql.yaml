@@ -1,0 +1,34 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+package_reboot_if_required: false
+
+# Disable password authentication fo root user
+ssh_pwauth: false
+
+# Install required packages
+packages:
+  - yum-utils
+
+# 
+runcmd:
+    - sudo yum install -y wget
+    - sudo wget https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
+    - sudo rpm -Uvh mysql80-community-release-el7-3.noarch.rpm
+    - sudo yum install -y mysql-server
+    - sudo systemctl start mysqld
+    - sudo systemctl start mysqld
+    # nr:Haxk-g2fs
+  # - sudo grep 'password' /var/log/mysqld.log
+  # ALTER USER 'root'@'localhost' IDENTIFIED BY 'nr:Haxk-g2fs-2';
+#    - /sbin/iptables -A INPUT -i eth0 -p tcp --destination-port 3306 -j ACCEPT
+#    - https://www.cyberciti.biz/tips/how-do-i-enable-remote-access-to-mysql-database-server.html
+# https://phoenixnap.com/kb/how-to-reset-mysql-root-password-windows-linux
+ # insert into db values ('localhost', 'mysql', 'root', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y');
+#  create database foo;
+#  use mysql
+#  CREATE USER 'jef'@'localhost' IDENTIFIED BY 'pasADEE-4sword';
+#  update db set Host='159.69.187.251' where Db='foo';
+#  update user set Host='159.69.187.251' where user='jef';
+#  GRANT ALL ON foo.* TO jef@'159.69.187.251' IDENTIFIED BY 'PASSWORD';
+# https://www.hostinger.com.ua/rukovodstva/ustanovka-mysql-na-centos-7/
